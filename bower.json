@@ -1,0 +1,28 @@
+{
+  "name": "stringcaser",
+  "version": "1.0.0",
+  "homepage": "https://github.com/djhvscf/stringcaser",
+  "authors": [
+    "djhvscf <djhv92@hotmail.com>"
+  ],
+  "description": "A jQuery Plugin for transform the strings",
+  "main": [
+      "src/stringcaser.js"
+  ],
+  "keywords": [
+    "string",
+    "camelcase",
+    "jquery",
+	"plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "docs",
+    "assets"
+  ]
+}

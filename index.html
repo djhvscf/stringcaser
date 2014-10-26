@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Stringcaser</title>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="src/stringcaser.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+<!--
+$(document).ready(function() {
+	var stringd = $('#text_field').stringcaser({str:'String to test'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'foo'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'foo-bar'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'foo-bar-baz'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'foo--bar'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'--foo-bar'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'--foo--bar'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'FOO-BAR'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'-foo-bar-'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'--foo--bar--'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'foo.bar'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'foo..bar'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'..foo..bar..'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'foo_bar'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'__foo__bar__'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'__foo__bar__'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'foo bar'}) + " ";
+	stringd += $('#text_field').stringcaser({str:'  foo  bar  '}) + " ";
+	stringd += $('#text_field').stringcaser({str:'-'}) + " ";
+	stringd += $('#text_field').stringcaser({str:' - '}) + " ";
+	
+	$('#text_field').val(stringd);
+});
+-->
+</script>
+</head>
+<body>
+<style>
+body
+{
+	font-family: arial, helvetica, freesans, sans-serif;
+	font-size: 100%;
+	color: #333;
+	background-color: #ddd;
+}
+
+h1
+{
+	font-size: 1.5em;
+	font-weight: normal;
+	margin: 0;
+}
+
+.out
+{
+	width: 400px;
+	height: 50px;
+	margin: 20px auto;
+	border: 2px solid #fff;
+	background-color:#777644;
+}
+
+.out1
+{
+	width: 400px;
+	height: 50px;
+	margin: 20px auto;
+	border: 2px solid #fff;
+	background-color:#FF0000;
+}
+
+.out div
+{
+	float: left;
+	width: 4px;
+	height: 50px;
+	margin: 0;
+}
+
+.out1 div
+{
+	float: left;
+	width: 4px;
+	height: 50px;
+	margin: 0;
+}
+
+</style>
+
+<textarea id="text_field" style="margin: 0px; width: 418px; height: 131px;"></textarea>
+
+</body>
+</html>

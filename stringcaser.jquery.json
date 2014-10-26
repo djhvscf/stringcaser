@@ -1,0 +1,28 @@
+{
+    "name": "stringcaser",
+    "version": "1.0.0",
+    "title": "stringcaser",
+    "description": "A jQuery Plugin for transform the strings",
+    "author": {
+        "name": "Dennis Heránadez Vargas",
+        "email": "djhv92@hotmail.com",
+        "url": "http://djhvscf.github.io/Blog"
+    },
+    "licenses": [
+        {
+            "type": "MIT License",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.7"
+    },
+    "keywords": ["stringaser.jquery"],
+    "homepage": "https://github.com/djhvscf/stringcaser",
+    "demo": "http://djhvscf.github.io/Blog/",
+    "bugs": {
+        "url": "https://github.com/djhvscf/stringcaser/issues"
+    },
+    "docs": "https://github.com/djhvscf/stringcaser",
+    "download": "https://github.com/djhvscf/stringcaser/releases"
+}
