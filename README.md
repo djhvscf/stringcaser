@@ -1,4 +1,4 @@
-stringcaser
+StringCaser
 ===========
 [![Build Status](https://travis-ci.org/djhvscf/stringcaser.svg?branch=master)](https://travis-ci.org/djhvscf/stringcaser)
 
