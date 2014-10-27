@@ -95,15 +95,19 @@
 			},
 			
 			onBlur: function() {
-				base.val(sd.transformString());
+				base[methodGetText](sd.transformString());
 			},
 			
 			onChange: function() {
-				base.val(sd.transformString());
+				base[methodGetText](sd.transformString());
 			},
 			
 			onPaste: function() { 
-				base.val(sd.transformString());
+				base[methodGetText](sd.transformString());
+			},
+			
+			onClick: function() {
+				base[methodGetText](sd.transformString());
 			}
 		};
 		
@@ -113,7 +117,7 @@
 					sd.events();
 				}else {
 					methodGetText = 'text';
-					base.text(sd.transformString());
+					base.click(sd.onClick);
 				}
 			}
 		};
