@@ -38,8 +38,8 @@
     $.fn.stringcaser = function (options) {
 		
 		var defaults = {
-			method: 'CamelCase',
-			humanReadable: true,
+			method: 'underscore_case',
+			humanReadable: false,
 			//events : {'blur': {callback: 'sd.onBlur'}, 'paste': {callback: 'sd.onPaste'}, 'change': {callback: 'sd.onChange'}},
 			},
 			options =  $.extend(defaults, options),
@@ -77,7 +77,8 @@
 					return strToReturn;
 						
 				} else {
-					//TODO underscore_case
+					//TODO best underscore_case function
+					return inputValue.replace(/([A-Z])/g, function($1) { return "_"+$1.toLowerCase(); });
 				}
 			},
 			
@@ -101,7 +102,7 @@
 			}
 		};
 		
-		var init = function() { 
+		var init = function() {
 			if (sd.validateMethod()) {
 				sd.events();
 			}
