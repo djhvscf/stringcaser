@@ -38,11 +38,13 @@
     $.fn.stringcaser = function (options) {
 		
 		var defaults = {
-			str: '',
-			method: 'CamelCase'
+			method: 'CamelCase',
+			humanReadable: true,
+			//events : {'blur': {callback: 'sd.onBlur'}, 'paste': {callback: 'sd.onPaste'}, 'change': {callback: 'sd.onChange'}},
 			},
 			options =  $.extend(defaults, options),
-			methods = ['CamelCase', 'underscore_case'];
+			methods = ['CamelCase', 'underscore_case'],
+			base = $(this);
 			
 		var sd = {
 			validateMethod: function() {
@@ -56,24 +58,55 @@
 			},
 			
 			transformString: function() {
-				options.str = options.str.trim();
+				var inputValue = base.val();
 				
-				if (options.str.length === 1) {
-					return options.str;
-				} else if (sd.validateMethod()) {
-					if(options.method === 'CamelCase') {
-						var strToReturn = options.str.replace(/^[_.\- ]+/, '')
-											.toLowerCase()
-											.replace(/[_.\- ]+(\w|$)/g, function (m, p1) { return p1.toUpperCase();});
-							return strToReturn.charAt(0).toUpperCase() + strToReturn.slice(1);
-					} else {
-						//TODO underscore_case
-					}
+				if (inputValue.length === 1) {
+					return inputValue;
 				}
+				
+				if(options.method === 'CamelCase') {
+					var strToReturn = inputValue.replace(/^[_.\-\* ]+/, '')
+										.toLowerCase()
+										.replace(/[_.\-\* ]+(\w|$)/g, function (m, p1) { return p1.toUpperCase();});
+					strToReturn = strToReturn.charAt(0).toUpperCase() + strToReturn.slice(1);
+					if(options.humanReadable) {
+						//return strToReturn.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1").trim();
+						return strToReturn.replace(/([A-Z]+)/g, " $1").trim();
+					}
+						
+					return strToReturn;
+						
+				} else {
+					//TODO underscore_case
+				}
+			},
+			
+			events: function () {
+				base
+				.off('blur').on('blur', sd.onBlur)
+				.off('paste').on('paste', function() { setTimeout(function() { sd.onPaste();}, 1)})
+                .off('change').on('change', sd.onChange);
+			},
+			
+			onBlur: function() {
+				base.val(sd.transformString());
+			},
+			
+			onChange: function() {
+				base.val(sd.transformString());
+			},
+			
+			onPaste: function() { 
+				base.val(sd.transformString());
 			}
 		};
 		
-		return sd.transformString();
+		var init = function() { 
+			if (sd.validateMethod()) {
+				sd.events();
+			}
+		};
 		
+		init();
     };
 })(jQuery);
