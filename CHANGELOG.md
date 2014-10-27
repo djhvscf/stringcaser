@@ -3,6 +3,7 @@
 ### 1.1.1
 * Added underscore_case function
 * Improve some functions
+* Support to others DOM elements
 
 ### 1.1.0
 

@@ -38,12 +38,13 @@
     $.fn.stringcaser = function (options) {
 		
 		var defaults = {
-			method: 'underscore_case',
+			method: 'CamelCase',
 			humanReadable: false,
 			//events : {'blur': {callback: 'sd.onBlur'}, 'paste': {callback: 'sd.onPaste'}, 'change': {callback: 'sd.onChange'}},
 			},
 			options =  $.extend(defaults, options),
 			methods = ['CamelCase', 'underscore_case'],
+			methodGetText = 'val',
 			base = $(this);
 			
 		var sd = {
@@ -58,7 +59,7 @@
 			},
 			
 			transformString: function() {
-				var inputValue = base.val();
+				var inputValue = $(base)[methodGetText]();
 				
 				if (inputValue.length === 1) {
 					return inputValue;
@@ -80,6 +81,10 @@
 					//TODO best underscore_case function
 					return inputValue.replace(/([A-Z])/g, function($1) { return "_"+$1.toLowerCase(); });
 				}
+			},
+			
+			isInputOrTextArea: function() {
+				return base.is("input") || base.is('textarea');
 			},
 			
 			events: function () {
@@ -104,7 +109,13 @@
 		
 		var init = function() {
 			if (sd.validateMethod()) {
-				sd.events();
+				debugger;
+				if(sd.isInputOrTextArea()) {
+					sd.events();
+				}else {
+					methodGetText = 'text';
+					base.text(sd.transformString());
+				}
 			}
 		};
 		
