@@ -1,6 +1,6 @@
  /**
  * stringcaser.js
- * @version: v1.0.0
+ * @version: v1.1.1
  * @author: Dennis Hernández
  * @webSite: http://djhvscf.github.io/Blog
  *
