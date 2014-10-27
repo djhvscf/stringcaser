@@ -109,7 +109,6 @@
 		
 		var init = function() {
 			if (sd.validateMethod()) {
-				debugger;
 				if(sd.isInputOrTextArea()) {
 					sd.events();
 				}else {
