@@ -38,9 +38,8 @@
     $.fn.stringcaser = function (options) {
 		
 		var defaults = {
-			method: 'CamelCase',
-			humanReadable: false,
-			//events : {'blur': {callback: 'sd.onBlur'}, 'paste': {callback: 'sd.onPaste'}, 'change': {callback: 'sd.onChange'}},
+				method: 'CamelCase',
+				humanReadable: false
 			},
 			options =  $.extend(defaults, options),
 			methods = ['CamelCase', 'underscore_case'],
@@ -65,12 +64,12 @@
 					return inputValue;
 				}
 				
-				if(options.method === 'CamelCase') {
+				if (options.method === 'CamelCase') {
 					var strToReturn = inputValue.replace(/^[_.\-\* ]+/, '')
 										.toLowerCase()
 										.replace(/[_.\-\* ]+(\w|$)/g, function (m, p1) { return p1.toUpperCase();});
 					strToReturn = strToReturn.charAt(0).toUpperCase() + strToReturn.slice(1);
-					if(options.humanReadable) {
+					if (options.humanReadable) {
 						//return strToReturn.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1").trim();
 						return strToReturn.replace(/([A-Z]+)/g, " $1").trim();
 					}
@@ -113,9 +112,9 @@
 		
 		var init = function() {
 			if (sd.validateMethod()) {
-				if(sd.isInputOrTextArea()) {
+				if (sd.isInputOrTextArea()) {
 					sd.events();
-				}else {
+				} else {
 					methodGetText = 'text';
 					base.click(sd.onClick);
 				}
